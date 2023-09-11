@@ -30,7 +30,7 @@ BURIQ () {
     done
     rm -f  /root/tmp
 }
-# https://raw.githubusercontent.com/FranataVPN/izinvps/ipuk/ip 
+# https://raw.githubusercontent.com/irawancandra6699/izinvps/ipuk/ip 
 MYIP=$(curl -sS ipv4.icanhazip.com)
 Name=$(curl -sS https://raw.githubusercontent.com/irawancandra6699/izinvps/ipuk/ip | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
@@ -124,16 +124,13 @@ if [ "" = "$PKG_OK" ]; then
   sleep 1
   echo -e "[ ${tyblue}NOTES${NC} ] Then run this script again"
   echo -e "[ ${tyblue}NOTES${NC} ] Notes, Script Mod By FranataSTORE"
-  echo -e "[ ${tyblue}NOTES${NC} ] if you understand then tap enter now.."
-  read
-else
   echo -e "[ ${green}INFO${NC} ] Oke installed"
 fi
 
 ttet=`uname -r`
 ReqPKG="linux-headers-$ttet"
 if ! dpkg -s $ReqPKG  >/dev/null 2>&1; then
-  rm /root/setup.sh >/dev/null 2>&1 
+  rm /root/installl.sh >/dev/null 2>&1 
   exit
 else
   clear
