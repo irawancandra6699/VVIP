@@ -88,46 +88,53 @@ echo "$localip $(hostname)" >> /etc/hosts
 fi
 mkdir -p /etc/xray
 
-echo -e "[ ${tyblue}NOTES${NC} ] Before we go.. "
-sleep 1
-echo -e "[ ${tyblue}NOTES${NC} ] I need check your headers first.."
-sleep 2
-echo -e "[ ${green}INFO${NC} ] Checking headers"
-sleep 1
-totet=`uname -r`
-REQUIRED_PKG="linux-headers-$totet"
-PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
-echo Checking for $REQUIRED_PKG: $PKG_OK
-if [ "" = "$PKG_OK" ]; then
-  sleep 2
-  echo -e "[ ${yell}WARNING${NC} ] Try to install ...."
-  echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-  apt-get --yes install $REQUIRED_PKG
-  sleep 1
-  echo ""
-  sleep 1
-  echo -e "[ ${tyblue}NOTES${NC} ] If error you need.. to do this"
-  sleep 1
-  echo ""
-  sleep 1
-  echo -e "[ ${tyblue}NOTES${NC} ] 1. apt update -y"
-  sleep 1
-  echo -e "[ ${tyblue}NOTES${NC} ] 2. apt upgrade -y"
-  sleep 1
-  echo -e "[ ${tyblue}NOTES${NC} ] 3. apt dist-upgrade -y"
-  sleep 1
-  echo -e "[ ${tyblue}NOTES${NC} ] 4. reboot"
-  sleep 1
-  echo ""
-  sleep 1
-  echo -e "[ ${tyblue}NOTES${NC} ] After rebooting"
-
-start=$(date +%s)
-ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
-sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null 2>&1
-sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
-
-coreselect=''
+fi
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
+#IZIN SCRIPT
+MYIP=$(curl -sS ipv4.icanhazip.com)
+echo -e "\e[32mloading...\e[0m"
+clear
+# Valid Script
+VALIDITY() {
+    today=$(date -d "0 days" +"%Y-%m-%d")
+    Exp1=$(curl https://raw.githubusercontent.com/${GitUser}/allow/main/ipvps.conf | grep $MYIP | awk '{print $4}')
+    if [[ $today < $Exp1 ]]; then
+        echo -e "\e[32mCongratulations! You are Allowed to use AUTOSCRIPT NevermoreSSH..\e[0m"
+        sleep 5
+    else
+        echo -e "\e[31mYOUR SCRIPT HAS EXPIRED!\e[0m"
+        echo -e "\e[31mPlease renew your ipvps first\e[0m"
+        exit 0
+    fi
+}
+# Valid Script
+VALIDITY() {
+    today=$(date -d "0 days" +"%Y-%m-%d")
+    Exp1=$(curl https://raw.githubusercontent.com/${GitUser}/allow/main/ipvps.conf | grep $MYIP | awk '{print $4}')
+    if [[ $today < $Exp1 ]]; then
+        echo -e "\e[32mCongratulations! You are Allowed to use AUTOSCRIPT NevermoreSSH..\e[0m"
+        sleep 5
+    else
+        echo -e "\e[31mYOUR SCRIPT HAS EXPIRED!\e[0m"
+        echo -e "\e[31mPlease renew your ipvps first\e[0m"
+        exit 0
+    fi
+}
+IZIN=$(curl https://raw.githubusercontent.com/${GitUser}/allow/main/ipvps.conf | awk '{print $5}' | grep $MYIP)
+if [ $MYIP = $IZIN ]; then
+    echo -e "\e[32mPermission Accepted...\e[0m"
+    VALIDITY
+else
+    echo -e "\e[31mPermission Denied!\e[0m"
+    echo -e "\e[31mPlease buy script first\e[0m"
+    rm -f setup.sh
+    exit 0
+fi
+clear
+echo -e "\e[32mloading...\e[0m"
+clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
 
@@ -156,7 +163,7 @@ elif [ "$res" = "Permission Accepted..." ]; then
 green "Permission Accepted!"
 else
 red "Permission Denied!"
-rm intalll.sh > /dev/null 2>&1
+rm setup.sh > /dev/null 2>&1
 sleep 10
 exit 0
 fi
