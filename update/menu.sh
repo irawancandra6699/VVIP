@@ -2,7 +2,7 @@
 # =========================================
 #!/bin/bash
 BURIQ () {
-    curl -sS https://raw.githubusercontent.com/FranataVPN/izinvps/ipuk/ip > /root/tmp
+    curl -sS https://raw.githubusercontent.com/irawancandra6699/izinvps/ipuk/ip > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
     for user in "${data[@]}"
     do
@@ -20,7 +20,7 @@ BURIQ () {
 }
 
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/FranataVPN/izinvps/ipuk/ip | grep $MYIP | awk '{print $2}')
+Name=$(curl -sS https://raw.githubusercontent.com/irawancandra6699/izinvps/ipuk/ip | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
 CekOne=$(cat /usr/local/etc/.$Name.ini)
 
@@ -37,7 +37,7 @@ fi
 
 PERMISSION () {
     MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/FranataVPN/izinvps/ipuk/ip | awk '{print $4}' | grep $MYIP)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/irawancandra6699/izinvps/ipuk/ip | awk '{print $4}' | grep $MYIP)
     if [ "$MYIP" = "$IZIN" ]; then
     Bloman
     else
@@ -55,7 +55,7 @@ PERMISSION
 if [ "$res" = "Expired" ]; then
 Exp="\e[36mExpired\033[0m"
 else
-Exp=$(curl -sS https://raw.githubusercontent.com/FranataVPN/izinvps/ipuk/ip | grep $MYIP | awk '{print $3}')
+Exp=$(curl -sS https://raw.githubusercontent.com/irawancandra6699/izinvps/ipuk/ip | grep $MYIP | awk '{print $3}')
 fi
 # // Exporting Language to UTF-8
 export LC_ALL='en_US.UTF-8'
@@ -203,9 +203,10 @@ echo -e "  ${COLOR1}[${BLUE}11${NC}]  ADD HOST/DOMAIN        $NC"
 echo -e "  ${COLOR1}[${BLUE}12${NC}]  CERT XRAY    $NC"
 echo -e "  ${COLOR1}[${BLUE}13${NC}]  AUTO REBOOT    $NC"
 echo -e "  ${COLOR1}[${BLUE}14${NC}]  MENU BOOT    $NC"
+echo -e "  ${COLOR1}[${BLUE}15${NC}]  ADMIN    $NC"
 echo -e " ${RED}"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e "\E[44;1;39m                     ⇱ FranataSTORE ⇲                         \E[0m"
+echo -e "\E[44;1;39m                     ⇱ CANDRA-STORE ⇲                         \E[0m"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 
 echo -e ""
@@ -226,6 +227,7 @@ case $opt in
 12) clear ; crtxray ;;
 13) clear ; $ressee ;;
 14) clear ; $bottt ;;
+15) clear ; menu-ip ;;
 999) clear ; update.sh ;;
 00 | 0) clear ; menu ;;
 *) clear ; menu ;;
