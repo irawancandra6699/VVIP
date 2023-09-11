@@ -1,5 +1,5 @@
 [Unit]
-Description=SlowDNS By irawancandra6699, nameserver= thekillstore.me
+Description=SlowDNS By irawancandra6699, nameserver= candravpnzprem.my.id
 Documentation=https://ssn.my.id
 After=network.target nss-lookup.target
 
