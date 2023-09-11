@@ -8,10 +8,10 @@ rm nsdomain
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c5)
 subsl=$(</dev/urandom tr -dc a-x0-9 | head -c5)
 DOMAIN=thekillstore.me
-SUB_DOMAIN=vip-${sub}.thekillstore.me
-NS_DOMAIN=ns-${subsl}.thekillstore.me
-CF_ID=bezzo9699@gmail.com
-CF_KEY=da3e57beb22acfd13192c5b820c2512300b34
+SUB_DOMAIN=vip-${sub}.candravpnzprem.my.id
+NS_DOMAIN=ns-${subsl}.candravpnzprem.my.id
+CF_ID=irawancandra6699@gmail.com
+CF_KEY=b07ea594ebc844a5d9db4a88fbdb09d9a7170
 
 echo "IP=""$SUB_DOMAIN" >> /var/lib/ssnvpn-pro/subdomain.conf
 echo "$NS_DOMAIN" >> /root/nsdomain
