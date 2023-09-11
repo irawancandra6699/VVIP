@@ -22,13 +22,13 @@ echo -e " [ ${green}INFO${NC} ] Installing SSH Slow DNS "
 echo "Progress..." | lolcat
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Downloading files... "
-wget -qc https://raw.githubusercontent.com/FranataVPN/VVIP/ipuk/slowdns/hostdnss.sh && chmod +x hostdnss.sh &&  sed -i -e 's/\r$//' hostdnss.sh && ./hostdnss.sh
+wget -qc https://raw.githubusercontent.com/irawancandra6699/VVIP/ipuk/slowdns/hostdnss.sh && chmod +x hostdnss.sh &&  sed -i -e 's/\r$//' hostdnss.sh && ./hostdnss.sh
 nameserver=$(cat /home/nsdomain)
 echo -e "[ ${green}INFO${NC} ] Download File... "
 echo "Progress..." | lolcat
 # SSH SlowDNS
 echo -e " [ ${green}INFO${NC} ] Successfully.. "
-wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/FranataVPN/VVIP/ipuk/slowdns/sshd_config
+wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/irawancandra6699/VVIP/ipuk/slowdns/sshd_config
 systemctl restart sshd
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Tambahan... "
@@ -72,16 +72,16 @@ cd /root
 rm -rf slowdns
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Downloading files... "
-wget -qc -O /etc/slowdns/sldns-server "https://raw.githubusercontent.com/FranataVPN/VVIP/ipuk/slowdns/sldns-server"
-wget -qc -O /etc/slowdns/sldns-client "https://raw.githubusercontent.com/FranataVPN/VVIP/ipuk/slowdns/sldns-client"
+wget -qc -O /etc/slowdns/sldns-server "https://raw.githubusercontent.com/irawancandra6699/VVIP/ipuk/slowdns/sldns-server"
+wget -qc -O /etc/slowdns/sldns-client "https://raw.githubusercontent.com/irawancandra6699/VVIP/ipuk/slowdns/sldns-client"
 sleep 1
 chmod +x /etc/slowdns/sldns-server
 chmod +x /etc/slowdns/sldns-client
 cd
 echo -e "[ ${green}INFO${NC} ] Successfully... "
 sleep 1
-#wget -q -O /etc/systemd/system/client-sldns.service "https://raw.githubusercontent.com/FranataVPN/VVIP/ipuk/slowdns/client-sldns.service"
-#wget -q -O /etc/systemd/system/server-sldns.service "https://raw.githubusercontent.com/FranataVPN/VVIP/ipuk/slowdns/server-sldns.service"
+#wget -q -O /etc/systemd/system/client-sldns.service "https://raw.githubusercontent.com/irawancandra6699/VVIP/ipuk/slowdns/client-sldns.service"
+#wget -q -O /etc/systemd/system/server-sldns.service "https://raw.githubusercontent.com/irawancandra6699/VVIP/ipuk/slowdns/server-sldns.service"
 cd
 sleep 1
 echo -e "[ ${green}INFO${NC} ] System Prosess... "
