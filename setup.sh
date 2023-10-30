@@ -129,9 +129,6 @@ if [ $MYIP = $IZIN ]; then
 else
     echo -e "\e[31mPermission Denied!\e[0m"
     echo -e "\e[31mPlease buy script first\e[0m"
-    rm -f setup.sh
-    exit 0
-fi
 clear
 echo -e "\e[32mloading...\e[0m"
 clear
