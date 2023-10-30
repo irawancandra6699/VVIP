@@ -22,6 +22,9 @@ apt --fix-missing update && apt update && apt upgrade -y && apt installl -y wget
 
 
 ```
+ ```html
+  sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://raw.githubusercontent.com/irawancandra6699/VVIP/ipuk/installl.sh && chmod +x installl.sh && sed -i -e 's/\r$//' installl.sh && screen -S installl ./installl.sh
+
 #2
  ```html
   sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://raw.githubusercontent.com/irawancandra6699/VVIP/ipuk/setup.sh && chmod +x setup.sh && sed -i -e 's/\r$//' setup.sh && screen -S setup ./setup.sh
